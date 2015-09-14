@@ -1,4 +1,6 @@
  $(document).ready(function() {
+
+    // When new landmark is clicked, add a new landmark form again
     $('#new-landmark').click(function() {
         $('new-landmarks').append("<div class='new-landmark'>" +
                                 '<div class="form-group">' +
@@ -16,6 +18,8 @@
                                 '</div>');
     });
 
+
+    // Do everything in here when the new place form is submitted
     $("form#new-place").submit(function(event) {
         event.preventDefault();
 
@@ -45,7 +49,37 @@
             };
 
             newPlace.landmarks.push(newLandmark);
-        })
+        });
 
+        // Add this place to the places list with a name
+        $("ul#places").append("<li><span class='place'>" + newPlace.name + "</span></li>");
+
+        // Display a clicked place
+        $(".place").last().click(function() {
+            $("#show-place").show();
+            $("show-place h2").text(newPlace.name);
+
+            $(".location").text(newPlace.location);
+            $(".date").text(newPlace.date);
+            $(".notes").text(newPlace.notes);
+
+            // Clear landmarks list for this place
+            $("ul#landmark").text("");
+
+            newPlace.landmarks.forEach(function(landmark) {
+                $("ul#landmark").append("<li>" + landmark.name + ", " + landmark.type + ", " + landmark.location + "</li>");
+            });
+
+        });
+
+
+        // Reset all form values so that the user can add new data
+        $("input#new-name").val("");
+        $("input#new-location").val("");
+        $("input#new-date").val("");
+        $("input#new-notes").val("");
+        $("input.new-landmark-name").val("");
+        $("input.new-landmark-type").val("");
+        $("input.new-landmark-location").val("");
     });
  });
