@@ -2,17 +2,17 @@
 
     // When new landmark is clicked, add a new landmark form again
     $('#new-landmark').click(function() {
-        $('new-landmarks').append("<div class='new-landmark'>" +
+        $('#new-landmarks').append("<div class='new-landmark'>" +
                                 '<div class="form-group">' +
-                                        '<label for="new-landmark-name">Landmark name:</label>' +
+                                        '<label for="new-landmark-name">Landmark Name</label>' +
                                         '<input type="text" class="form-control new-landmark-name">' +
                                     '</div>' +
                                     '<div class="form-group">' +
-                                        '<label for="new-landmark-city">Landmark City:</label>' +
-                                        '<input type="text" class="form-control new-landmark-city">' +
+                                        '<label for="new-landmark-type">Landmark Type</label>' +
+                                        '<input type="text" class="form-control new-landmark-type">' +
                                     '</div>' +
                                     '<div class="form-group">' +
-                                        '<label for="new-landmark-location">Landmark Location:</label>' +
+                                        '<label for="new-landmark-location">Landmark Location</label>' +
                                         '<input type="text" class="form-control new-landmark-location">' +
                                     '</div>' +
                                 '</div>');
